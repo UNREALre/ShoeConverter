@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var shoeSizeTextField: UITextField!
+    
+    @IBOutlet weak var convertedSizeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +25,17 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func convertButtonPressed(sender: AnyObject) {
+        shoeSizeTextField.resignFirstResponder()
+        
+        let currentSSize = shoeSizeTextField.text
+        let convertVal = 30
+        var intSSize = currentSSize.toInt()
+        let convertedSize = intSSize! + convertVal
+        
+        convertedSizeLabel.text = "\(convertedSize)"
+        convertedSizeLabel.hidden = false
+    }
+    
 }
 
